@@ -18,6 +18,16 @@ monthly_challenges = {
 }
 
 
+def index(request):
+    months = list(monthly_challenges.keys())
+    list_items = ""
+    for month in months:
+        redirect_path = reverse("monthly_challenge", args=[month])
+        list_items += f"<li><a href=\"{redirect_path}\">{month.capitalize()}</a></li>"
+
+    return HttpResponse(f"<ul>{list_items}</ul>")
+
+
 def monthly_challenges_by_number(request, month):
     months = list(monthly_challenges.keys())
     if month > len(months):
