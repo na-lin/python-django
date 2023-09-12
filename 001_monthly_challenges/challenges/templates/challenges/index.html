@@ -8,7 +8,7 @@
   <body>
     <ul>
       {% for month in months%}
-      <li><a href="">{{month}}</a></li>
+        <li><a href="{% url "monthly_challenge" month=month %}">{{month}}</a></li>
       {% endfor %}
     </ul>
   </body>
